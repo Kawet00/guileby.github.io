@@ -1,0 +1,230 @@
+{
+  "nodes": [
+    {
+      "id": "js_main",
+      "label": "main.js",
+      "file_type": "code",
+      "source_file": "js/main.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "js_main_nav",
+      "label": "nav",
+      "file_type": "code",
+      "source_file": "js/main.js",
+      "source_location": "L5",
+      "_origin": "ast"
+    },
+    {
+      "id": "js_main_onscroll",
+      "label": "onScroll()",
+      "file_type": "code",
+      "source_file": "js/main.js",
+      "source_location": "L6",
+      "_origin": "ast"
+    },
+    {
+      "id": "js_main_toggle",
+      "label": "toggle",
+      "file_type": "code",
+      "source_file": "js/main.js",
+      "source_location": "L11",
+      "_origin": "ast"
+    },
+    {
+      "id": "js_main_links",
+      "label": "links",
+      "file_type": "code",
+      "source_file": "js/main.js",
+      "source_location": "L12",
+      "_origin": "ast"
+    },
+    {
+      "id": "js_main_revealels",
+      "label": "revealEls",
+      "file_type": "code",
+      "source_file": "js/main.js",
+      "source_location": "L25",
+      "_origin": "ast"
+    },
+    {
+      "id": "js_main_io",
+      "label": "io",
+      "file_type": "code",
+      "source_file": "js/main.js",
+      "source_location": "L30",
+      "_origin": "ast"
+    },
+    {
+      "id": "js_main_bars",
+      "label": "bars",
+      "file_type": "code",
+      "source_file": "js/main.js",
+      "source_location": "L42",
+      "_origin": "ast"
+    },
+    {
+      "id": "js_main_bario",
+      "label": "barIO",
+      "file_type": "code",
+      "source_file": "js/main.js",
+      "source_location": "L43",
+      "_origin": "ast"
+    },
+    {
+      "id": "js_main_counters",
+      "label": "counters",
+      "file_type": "code",
+      "source_file": "js/main.js",
+      "source_location": "L51",
+      "_origin": "ast"
+    },
+    {
+      "id": "js_main_countio",
+      "label": "countIO",
+      "file_type": "code",
+      "source_file": "js/main.js",
+      "source_location": "L52",
+      "_origin": "ast"
+    },
+    {
+      "id": "js_main_form",
+      "label": "form",
+      "file_type": "code",
+      "source_file": "js/main.js",
+      "source_location": "L71",
+      "_origin": "ast"
+    },
+    {
+      "id": "js_main_note",
+      "label": "note",
+      "file_type": "code",
+      "source_file": "js/main.js",
+      "source_location": "L72",
+      "_origin": "ast"
+    }
+  ],
+  "edges": [
+    {
+      "source": "js_main",
+      "target": "js_main_nav",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/main.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "js_main",
+      "target": "js_main_onscroll",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/main.js",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "js_main",
+      "target": "js_main_toggle",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/main.js",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "js_main",
+      "target": "js_main_links",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/main.js",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "js_main",
+      "target": "js_main_revealels",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/main.js",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "js_main",
+      "target": "js_main_io",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/main.js",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "js_main",
+      "target": "js_main_bars",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/main.js",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "js_main",
+      "target": "js_main_bario",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/main.js",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "js_main",
+      "target": "js_main_counters",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/main.js",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "js_main",
+      "target": "js_main_countio",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/main.js",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "js_main",
+      "target": "js_main_form",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/main.js",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "js_main",
+      "target": "js_main_note",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/main.js",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "js_main_onscroll",
+      "target": "js_main_toggle",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/main.js",
+      "source_location": "L6",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
