@@ -1,6 +1,15 @@
 // ===== Année dans le footer =====
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// ===== Âge calculé automatiquement à partir de la date de naissance =====
+document.querySelectorAll('.js-age').forEach(el => {
+  const [y, m, d] = el.dataset.birth.split('-').map(Number);
+  const now = new Date();
+  let age = now.getFullYear() - y;
+  if (now.getMonth() + 1 < m || (now.getMonth() + 1 === m && now.getDate() < d)) age--;
+  el.textContent = age;
+});
+
 // ===== Nav : fond au scroll =====
 const nav = document.getElementById('nav');
 const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 20);
@@ -23,7 +32,7 @@ links.querySelectorAll('a').forEach(a =>
 
 // ===== Reveal au scroll (sections, projets, cartes) =====
 const revealEls = document.querySelectorAll(
-  '.section__title, .section__sub, .about__text, .about__cards, .minicard, .skillgroup, .tags, .project, .tl, .contact__cards, .contact__form'
+  '.section__title, .section__sub, .about__text, .about__cards, .minicard, .skillgroup, .tags, .project, .tl, .veille__filters, .vcard, .veille__sources, .pcards, .contact__form'
 );
 revealEls.forEach(el => el.classList.add('reveal'));
 
@@ -67,6 +76,49 @@ const countIO = new IntersectionObserver((entries) => {
 }, { threshold: 0.6 });
 counters.forEach(c => countIO.observe(c));
 
+// ===== Veille : filtres par thème =====
+const veilleChips = document.querySelectorAll('.veille__filters .chip');
+veilleChips.forEach(chip =>
+  chip.addEventListener('click', () => {
+    veilleChips.forEach(c => c.classList.toggle('is-active', c === chip));
+    const cat = chip.dataset.filter;
+    document.querySelectorAll('#veilleGrid .vcard').forEach(card =>
+      card.classList.toggle('is-hidden', cat !== 'all' && card.dataset.cat !== cat)
+    );
+  })
+);
+
+// ===== Contact : cartes à retourner =====
+document.querySelectorAll('.pcard__inner').forEach(btn =>
+  btn.addEventListener('click', () => btn.closest('.pcard').classList.toggle('is-flipped'))
+);
+document.querySelectorAll('[data-copy]').forEach(btn =>
+  btn.addEventListener('click', async () => {
+    const label = btn.textContent;
+    try {
+      await navigator.clipboard.writeText(btn.dataset.copy);
+      btn.textContent = 'Copié ✓';
+    } catch {
+      btn.textContent = 'Échec';
+    }
+    setTimeout(() => { btn.textContent = label; }, 1500);
+  })
+);
+
+// ===== Contact : carte message à remplir =====
+const subjectInput = document.getElementById('subjectInput');
+const topicChips = document.querySelectorAll('.mcard__topics .chip');
+topicChips.forEach(chip =>
+  chip.addEventListener('click', () => {
+    topicChips.forEach(c => c.classList.toggle('is-active', c === chip));
+    subjectInput.value = chip.dataset.topic;
+  })
+);
+const msgInput = document.getElementById('msgInput');
+const msgCount = document.getElementById('msgCount');
+const updateCount = () => { msgCount.textContent = `${msgInput.value.length} / ${msgInput.maxLength}`; };
+msgInput.addEventListener('input', updateCount);
+
 // ===== Formulaire de contact =====
 const form = document.getElementById('contactForm');
 const note = document.getElementById('formNote');
@@ -90,6 +142,8 @@ form.addEventListener('submit', async (ev) => {
     if (res.ok) {
       note.textContent = '✅ Message envoyé, merci !';
       form.reset();
+      topicChips.forEach(c => c.classList.remove('is-active'));
+      updateCount();
     } else {
       note.textContent = '❌ Une erreur est survenue. Réessayez.';
     }
