@@ -98,3 +98,56 @@ document.querySelectorAll('[data-copy]').forEach(btn =>
     try {
       await navigator.clipboard.writeText(btn.dataset.copy);
       btn.textContent = 'Copié ✓';
+    } catch {
+      btn.textContent = 'Échec';
+    }
+    setTimeout(() => { btn.textContent = label; }, 1500);
+  })
+);
+
+// ===== Contact : carte message à remplir =====
+const subjectInput = document.getElementById('subjectInput');
+const topicChips = document.querySelectorAll('.mcard__topics .chip');
+topicChips.forEach(chip =>
+  chip.addEventListener('click', () => {
+    topicChips.forEach(c => c.classList.toggle('is-active', c === chip));
+    subjectInput.value = chip.dataset.topic;
+  })
+);
+const msgInput = document.getElementById('msgInput');
+const msgCount = document.getElementById('msgCount');
+const updateCount = () => { msgCount.textContent = `${msgInput.value.length} / ${msgInput.maxLength}`; };
+msgInput.addEventListener('input', updateCount);
+
+// ===== Formulaire de contact =====
+const form = document.getElementById('contactForm');
+const note = document.getElementById('formNote');
+form.addEventListener('submit', async (ev) => {
+  // Si Formspree n'est pas configuré, on évite l'envoi réel
+  if (form.action.includes('your-id')) {
+    ev.preventDefault();
+    note.textContent = '⚠️ Configurez l\'adresse du formulaire (Formspree) pour activer l\'envoi.';
+    note.style.color = '#fbbf24';
+    return;
+  }
+  ev.preventDefault();
+  note.textContent = 'Envoi en cours...';
+  note.style.color = '';
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' }
+    });
+    if (res.ok) {
+      note.textContent = '✅ Message envoyé, merci !';
+      form.reset();
+      topicChips.forEach(c => c.classList.remove('is-active'));
+      updateCount();
+    } else {
+      note.textContent = '❌ Une erreur est survenue. Réessayez.';
+    }
+  } catch {
+    note.textContent = '❌ Erreur réseau. Réessayez plus tard.';
+  }
+});
