@@ -192,7 +192,7 @@ a.project__link:hover{border-color:var(--brand);color:var(--brand);background:rg
 .project__link--off{color:var(--muted);border-style:dashed}
 
 /* Timeline */
-.timeline{position:relative;padding-left:2rem;max-width:720px}
+.timeline{position:relative;padding-left:2rem;max-width:900px}
 .timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
 .tl{position:relative;padding-bottom:2.2rem}
 .tl:last-child{padding-bottom:0}
@@ -217,6 +217,34 @@ a.project__link:hover{border-color:var(--brand);color:var(--brand);background:rg
   background:rgba(168,179,136,.12);padding:.2rem .6rem;border-radius:999px;margin-bottom:.45rem}
 .subtl__item h4{font-family:'Space Grotesk';font-size:.98rem;margin:0 0 .3rem;color:var(--text)}
 .subtl__item p{font-size:.85rem;margin:0}
+.subtl__missions{list-style:none;margin-top:.6rem;display:grid;gap:.35rem}
+.subtl__missions li{position:relative;padding-left:1.1rem;font-size:.82rem;color:var(--muted)}
+.subtl__missions li::before{content:"▸";position:absolute;left:0;color:var(--brand)}
+
+/* Stage détaillé avec présentation de l'entreprise */
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.2rem;margin-bottom:.9rem}
+.stage__head{display:flex;align-items:center;gap:1rem;padding-bottom:1rem;margin-bottom:1rem;border-bottom:1px dashed var(--line)}
+.stage__logo{flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:14px;
+  background:var(--grad);color:#2a1606;font-family:'Space Grotesk';font-weight:700;font-size:1.5rem}
+.stage__head h4{font-family:'Space Grotesk';font-size:1.1rem;margin:0 0 .1rem;color:var(--text)}
+.stage__head p{font-size:.85rem;margin:0}
+.stage__cols{display:grid;grid-template-columns:1.15fr 1fr;gap:1.4rem}
+.stage h5{font-family:'Space Grotesk';font-size:.95rem;color:var(--text);margin-bottom:.5rem}
+.stage__cols p{font-size:.86rem;margin-bottom:.8rem}
+.stage__cols p b{color:var(--text);font-weight:600}
+.stage__facts{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.8rem}
+.stage__facts li{display:flex;flex-direction:column;padding:.55rem .7rem;border-radius:10px;
+  background:rgba(224,164,88,.07);border:1px solid rgba(224,164,88,.18)}
+.stage__facts b{font-family:'Space Grotesk';font-size:.95rem;color:var(--brand)}
+.stage__facts span{font-size:.72rem;color:var(--muted)}
+.stage__link{font-size:.82rem;font-weight:600;color:var(--brand)}
+.stage__link:hover{text-decoration:underline}
+.stage__role{padding-left:1.4rem;border-left:1px solid var(--line)}
+.stage__role .subtl__missions{margin:0 0 .9rem}
+@media(max-width:640px){
+  .stage__cols{grid-template-columns:1fr}
+  .stage__role{padding-left:0;border-left:none;padding-top:1rem;border-top:1px solid var(--line)}
+}
 @media(max-width:560px){.subtl__grid{grid-template-columns:1fr}}
 
 /* Chips (filtres, sujets) */

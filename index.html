@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=2" />
 
   <!-- JSON-LD: Person -->
   <script type="application/ld+json">
@@ -415,12 +415,50 @@
 
             <div class="subtl">
               <p class="subtl__label">Stages en entreprise (Durant mon BTS)</p>
-              <div class="subtl__grid">
-                <div class="subtl__item">
-                  <span class="subtl__date">1re année · 2026</span>
-                  <h4>Stage de 1re année</h4>
-                  <p>Premier stage réalisé. <em>Vectorys France</em></p>
+              <article class="stage">
+                <header class="stage__head">
+                  <span class="stage__logo" aria-hidden="true">V</span>
+                  <div>
+                    <span class="subtl__date">1re année · 26 mai – 26 juin 2026 · 1 mois</span>
+                    <h4>Stage chez Vectorys France</h4>
+                    <p>Marignane (13) · Support informatique</p>
+                  </div>
+                </header>
+
+                <div class="stage__cols">
+                  <section class="stage__company">
+                    <h5>🏢 L'entreprise</h5>
+                    <p>
+                      <b>Vectorys</b> est un groupe de <b>transport routier international et de logistique</b>,
+                      spécialisé dans les liaisons entre l'<b>Europe et l'Afrique du Nord</b> (Tunisie, Maroc,
+                      Algérie…). Il assure le transport de marchandises par semi-remorques, l'affrètement
+                      et les formalités de <b>douane</b> pour des clients de l'industrie automobile, du
+                      textile ou de l'agroalimentaire.
+                    </p>
+                    <ul class="stage__facts">
+                      <li><b>1996</b><span>Création</span></li>
+                      <li><b>Marignane</b><span>Siège social</span></li>
+                      <li><b>100–199</b><span>Salariés</span></li>
+                      <li><b>SAS</b><span>Transport &amp; logistique</span></li>
+                    </ul>
+                    <a class="stage__link" href="https://www.vectorys.com/" target="_blank" rel="noopener">vectorys.com ↗</a>
+                  </section>
+
+                  <section class="stage__role">
+                    <h5>🧑‍💻 Mon rôle</h5>
+                    <p>J'intervenais en support informatique auprès des employés de l'entreprise.</p>
+                    <ul class="subtl__missions">
+                      <li>Réinitialisation et préparation des PC portables des employés</li>
+                      <li>Diagnostic et résolution des problèmes rencontrés sur les postes</li>
+                    </ul>
+                    <div class="project__tags">
+                      <span>Support utilisateurs</span><span>Réinitialisation de postes</span><span>Dépannage</span><span>Parc informatique</span>
+                    </div>
+                  </section>
                 </div>
+              </article>
+
+              <div class="subtl__grid">
                 <div class="subtl__item subtl__item--soon">
                   <span class="subtl__date">2e année · 2027 — à venir</span>
                   <h4>Stage de 2e année</h4>
@@ -688,6 +726,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2"></script>
 </body>
 </html>
